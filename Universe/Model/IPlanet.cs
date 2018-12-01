@@ -7,7 +7,7 @@ namespace Universe.Model
         string Name();
         void Rename(string name);
         IEnumerable<IProperty> Properties();
-        void Add(IProperty property);
-        void Delete(IProperty property);
+        void Delete();
+        
     }
 }

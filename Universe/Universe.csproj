@@ -69,6 +69,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\InMemory\Universe.cs" />
     <Compile Include="Model\IPlanet.cs" />
     <Compile Include="Model\IPlanets.cs" />
     <Compile Include="Model\IProperties.cs" />
@@ -100,6 +101,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\Sqlite\" />
     <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

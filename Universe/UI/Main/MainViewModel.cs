@@ -2,7 +2,7 @@
 using Universe.Model;
 using Universe.UI.ListPlanets;
 
-namespace Universe
+namespace Universe.UI.Main
 {
     public sealed class MainViewModel: ObservableObject
     {

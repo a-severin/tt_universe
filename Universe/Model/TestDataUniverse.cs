@@ -15,6 +15,15 @@
             planets.Create("Jupiter");
             planets.Create("Saturn");
             planets.Create("Uranus");
+
+            var properties = _universe.Properties();
+            properties.Create("Atmosphere");
+            properties.Create("Water");
+            properties.Create("Solid");
+            properties.Create("Radiation");
+            properties.Create("Hot");
+            properties.Create("Cold");
+            properties.Create("Ice");
         }
 
         public IPlanets Planets()

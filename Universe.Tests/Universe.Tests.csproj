@@ -49,8 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UniverseTests.cs" />
+    <Compile Include="BaseUniverseTests.cs" />
+    <Compile Include="Model\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ListPlanetsViewModelTests.cs" />
+    <Compile Include="UI\ListPropertiesViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

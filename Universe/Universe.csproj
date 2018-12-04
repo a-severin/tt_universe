@@ -77,6 +77,10 @@
       <DependentUpon>ListPlanetsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ListPlanets\ListPlanetsViewModel.cs" />
+    <Page Include="UI\ListProperties\ListPropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +89,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UI\ListPlanets\PlanetPresenter.cs" />
+    <Compile Include="UI\ListProperties\ListPropertiesControl.xaml.cs">
+      <DependentUpon>ListPropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ListProperties\ListPropertiesViewModel.cs" />
     <Compile Include="UI\Main\MainViewModel.cs" />
     <Compile Include="UI\Main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

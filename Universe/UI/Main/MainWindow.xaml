@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:listPlanets="clr-namespace:Universe.UI.ListPlanets"
+    xmlns:listProperties="clr-namespace:Universe.UI.ListProperties"
     xmlns:local="clr-namespace:Universe"
     xmlns:main="clr-namespace:Universe.UI.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,7 +14,12 @@
     d:DataContext="{d:DesignInstance d:Type=main:MainViewModel}"
     Icon="../../universe.ico"
     mc:Ignorable="d">
-    <Grid>
-        <listPlanets:ListPlanetsControl DataContext="{Binding Path=ListPlanetsViewModel}" />
-    </Grid>
+    <TabControl>
+        <TabItem Header="Planets">
+            <listPlanets:ListPlanetsControl DataContext="{Binding Path=ListPlanetsViewModel}" />
+        </TabItem>
+        <TabItem Header="Properties">
+            <listProperties:ListPropertiesControl DataContext="{Binding Path=ListPropertiesViewModel}" />
+        </TabItem>
+    </TabControl>
 </Window>

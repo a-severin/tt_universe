@@ -4,7 +4,6 @@ namespace Universe.Model
 {
     public interface IProperties: IEnumerable<IProperty>
     {
-        void Add(IProperty property);
-        void Delete(IProperty property);
+        IProperty Create(string value);
     }
 }

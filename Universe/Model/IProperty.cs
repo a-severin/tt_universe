@@ -4,5 +4,6 @@
     {
         string Value();
         void Change(string value);
+        void Delete();
     }
 }

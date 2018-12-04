@@ -67,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\InMemory\Planet.cs" />
+    <Compile Include="Model\InMemory\Planets.cs" />
+    <Compile Include="Model\InMemory\Properties.cs" />
+    <Compile Include="Model\InMemory\Property.cs" />
     <Compile Include="Model\TestDataUniverse.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UI\ListPlanets\ListPlanetsControl.xaml.cs">

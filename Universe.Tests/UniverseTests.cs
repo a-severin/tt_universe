@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
 
@@ -10,22 +9,12 @@ namespace Universe.Tests
     {
         private IUniverse _universe;
 
-        [TestInitialize]
-        public void Setup()
-        {
-            _universe = new Model.InMemory.Universe();
-        }
-
         [TestMethod]
-        public void Planets_Empty_AtStart()
+        public void Planets_Empty_AfterDelete()
         {
+            _universe.Planets().Create("Test Planet");
+            _universe.Planets().First().Delete();
             Assert.IsFalse(_universe.Planets().Any());
-        }
-
-        [TestMethod]
-        public void Properties_Empty_AtStart()
-        {
-            Assert.IsFalse(_universe.Properties().Any());
         }
 
         [TestMethod]
@@ -33,6 +22,27 @@ namespace Universe.Tests
         {
             _universe.Planets().Create("Test Planet");
             Assert.IsTrue(_universe.Planets().Any());
+        }
+
+        [TestMethod]
+        public void Properties_Empty_AfterDelete()
+        {
+            _universe.Properties().Create("Test Property");
+            _universe.Properties().First().Delete();
+            Assert.IsFalse(_universe.Properties().Any());
+        }
+
+        [TestMethod]
+        public void Properties_NotEmpty_AfterCreateOne()
+        {
+            _universe.Properties().Create("Test Property");
+            Assert.IsTrue(_universe.Properties().Any());
+        }
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _universe = new Model.InMemory.Universe();
         }
     }
 }

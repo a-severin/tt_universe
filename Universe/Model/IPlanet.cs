@@ -6,8 +6,14 @@ namespace Universe.Model
     {
         string Name();
         void Rename(string name);
-        IEnumerable<IProperty> Properties();
+        IPlanetProperties Properties();
         void Delete();
         
+    }
+
+    public interface IPlanetProperties: IEnumerable<IProperty>
+    {
+        void Add(IProperty property);
+        bool Contains(IProperty property);
     }
 }

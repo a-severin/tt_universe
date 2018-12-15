@@ -29,6 +29,11 @@ namespace Universe.Model
             PlanetRenamed?.Invoke(this, EventArgs.Empty);
         }
 
+        public IPlanetProperties Properties()
+        {
+            return _inner.Properties();
+        }
+
         public async Task RenameAsync(string name)
         {
             await Task.Run(() => _inner.Rename(name));
@@ -37,10 +42,7 @@ namespace Universe.Model
 
         public event EventHandler PlanetRenamed; 
 
-        public IEnumerable<IProperty> Properties()
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         public void Delete()
         {

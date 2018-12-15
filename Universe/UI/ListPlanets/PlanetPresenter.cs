@@ -1,10 +1,11 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using Universe.Model;
+using Universe.Model.InMemory;
 
 namespace Universe.UI.ListPlanets
 {
-    public sealed class PlanetPresenter: ObservableObject
+    public sealed class PlanetPresenter : ObservableObject
     {
         private readonly AsyncPlanet _planet;
 
@@ -21,5 +22,6 @@ namespace Universe.UI.ListPlanets
         public ICommand DeleteItem { get; }
 
         public ICommand EditName { get; }
+        public IPlanet Planet => _planet;
     }
 }

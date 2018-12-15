@@ -8,22 +8,32 @@
         {
             _universe = universe;
             var planets = _universe.Planets();
-            planets.Create("Mercury");
-            planets.Create("Venus");
-            planets.Create("Earth");
+            var mercury = planets.Create("Mercury");
+            var venus = planets.Create("Venus");
+            var earth = planets.Create("Earth");
             planets.Create("Mars");
             planets.Create("Jupiter");
             planets.Create("Saturn");
             planets.Create("Uranus");
 
             var properties = _universe.Properties();
-            properties.Create("Atmosphere");
-            properties.Create("Water");
-            properties.Create("Solid");
-            properties.Create("Radiation");
-            properties.Create("Hot");
-            properties.Create("Cold");
-            properties.Create("Ice");
+            var atmosphere = properties.Create("Atmosphere");
+            var water = properties.Create("Water");
+            var solid = properties.Create("Solid");
+            var radiation = properties.Create("Radiation");
+            var hot = properties.Create("Hot");
+            var cold = properties.Create("Cold");
+            var ice = properties.Create("Ice");
+
+            earth.Properties().Add(atmosphere);
+            earth.Properties().Add(water);
+
+            venus.Properties().Add(hot);
+            venus.Properties().Add(radiation);
+
+            mercury.Properties().Add(solid);
+            mercury.Properties().Add(ice);
+            mercury.Properties().Add(cold);
         }
 
         public IPlanets Planets()

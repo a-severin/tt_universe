@@ -9,15 +9,40 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:main="clr-namespace:Universe.UI.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:planetDescription="clr-namespace:Universe.UI.PlanetDescription"
     Title="Universe"
-    Width="800"
-    Height="450"
+    Width="840"
+    Height="480"
     d:DataContext="{d:DesignInstance d:Type=main:MainViewModel}"
     Icon="../../universe.ico"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <TabControl>
         <TabItem Header="Planets">
-            <listPlanets:ListPlanetsControl DataContext="{Binding Path=ListPlanetsViewModel}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <GroupBox
+                    Grid.Column="0"
+                    Header="List">
+                    <listPlanets:ListPlanetsControl DataContext="{Binding Path=ListPlanetsViewModel}" />
+                </GroupBox>
+
+                <GridSplitter
+                    Grid.Column="1"
+                    Width="5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch" />
+
+                <GroupBox
+                    Grid.Column="2"
+                    Header="Description">
+                    <planetDescription:PlanetDescriptionControl DataContext="{Binding Path=PlanetDescriptionViewModel}" />
+                </GroupBox>
+            </Grid>
         </TabItem>
         <TabItem Header="Properties">
             <listProperties:ListPropertiesControl DataContext="{Binding Path=ListPropertiesViewModel}" />

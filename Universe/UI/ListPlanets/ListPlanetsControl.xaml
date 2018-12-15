@@ -27,7 +27,9 @@
 
         </ToolBarPanel>
         <Grid>
-            <ListView ItemsSource="{Binding Path=PlanetPresenters}">
+            <ListView
+                ItemsSource="{Binding Path=PlanetPresenters}"
+                SelectedItem="{Binding Path=SelectedPlanetPresenter, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="local:PlanetPresenter">
                         <shared:NamedListItemControl

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -9,6 +10,7 @@ namespace Universe.UI.ListPlanets
     public sealed class ListPlanetsViewModel : ObservableObject
     {
         private readonly AsyncPlanets _planets;
+        private PlanetPresenter _selectedPlanetPresenter;
 
         public ListPlanetsViewModel(IUniverse universe)
         {
@@ -23,6 +25,18 @@ namespace Universe.UI.ListPlanets
 
         public ObservableCollection<PlanetPresenter> PlanetPresenters { get; } =
             new ObservableCollection<PlanetPresenter>();
+
+        public PlanetPresenter SelectedPlanetPresenter
+        {
+            get => _selectedPlanetPresenter;
+            set
+            {
+                _selectedPlanetPresenter = value;
+                PlanetSelected?.Invoke(this, _selectedPlanetPresenter?.Planet);
+            }
+        }
+
+        public event EventHandler<IPlanet> PlanetSelected;
 
         public ICommand CreatePlanet { get; }
 

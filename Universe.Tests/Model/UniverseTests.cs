@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
 
 namespace Universe.Tests.Model
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public class UniverseTests: BaseUniverseTests
     {
 

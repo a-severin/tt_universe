@@ -1,20 +1,25 @@
-﻿using Universe.Model;
+﻿using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using Universe.Model;
 
 namespace Universe.UI.ListPlanets
 {
-    public sealed class PlanetPresenter
+    public sealed class PlanetPresenter: ObservableObject
     {
-        private readonly IPlanet _planet;
+        private readonly AsyncPlanet _planet;
 
-        public PlanetPresenter(IPlanet planet)
+        public PlanetPresenter(AsyncPlanet planet)
         {
             _planet = planet;
+            EditName = new EditPlanetName(_planet);
+            DeleteItem = new DeletePlanet(_planet);
+            _planet.PlanetRenamed += (sender, args) => { this.RaisePropertyChanged(nameof(Text)); };
         }
 
-        public string Text
-        {
-            get => _planet.Name();
-            
-        }
+        public string Text => _planet.Name();
+
+        public ICommand DeleteItem { get; }
+
+        public ICommand EditName { get; }
     }
 }

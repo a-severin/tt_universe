@@ -1,14 +1,14 @@
-﻿using System;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
-using Universe.Model.InMemory;
 using Universe.UI.ListPlanets;
 
-namespace Universe.Tests.UI
+namespace Universe.Tests.UI.ListPlanets
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public class ListPlanetsViewModelTests : BaseUniverseTests
     {
         [TestMethod]
@@ -46,5 +46,6 @@ namespace Universe.Tests.UI
             Assert.IsTrue(planets.Any());
             Assert.IsTrue(eventInvoked);
         }
+        
     }
 }

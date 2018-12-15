@@ -39,7 +39,8 @@
             </Grid.ColumnDefinitions>
             <TextBox
                 x:Name="EditNameTextBox"
-                Grid.Column="0" />
+                Grid.Column="0"
+                VerticalContentAlignment="Center" />
             <Button
                 x:Name="ApplyEditButton"
                 Grid.Column="1"

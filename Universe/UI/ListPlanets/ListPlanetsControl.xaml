@@ -14,14 +14,26 @@
             Height="32"
             DockPanel.Dock="Top">
 
-            <shared:CreateControl CreateCommand="{Binding Path=CreatePlanet}" />
+            <StackPanel Orientation="Horizontal">
+                <ToolBar>
+                    <Button
+                        Command="{Binding Path=ReloadPlanets}"
+                        Content="{iconPacks:Material Refresh}"
+                        ToolTip="Refresh" />
+                </ToolBar>
+
+                <shared:CreateControl CreateCommand="{Binding Path=CreatePlanet}" />
+            </StackPanel>
 
         </ToolBarPanel>
         <Grid>
             <ListView ItemsSource="{Binding Path=PlanetPresenters}">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="local:PlanetPresenter">
-                        <shared:NamedListItemControl ItemName="{Binding Path=Text}" />
+                        <shared:NamedListItemControl
+                            DeleteItem="{Binding Path=DeleteItem}"
+                            EditItemName="{Binding Path=EditName}"
+                            ItemName="{Binding Path=Text}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -6,21 +6,17 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:Universe.UI.ListPlanets"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shared="clr-namespace:Universe.UI.Shared"
     d:DataContext="{d:DesignInstance d:Type=local:ListPlanetsViewModel}"
     mc:Ignorable="d">
     <DockPanel>
-        <ToolBar
+        <ToolBarPanel
             Height="32"
             DockPanel.Dock="Top">
-            <Button
-                Content="{iconPacks:Material Plus}"
-                ToolTip="Add" />
 
-            <Button
-                Content="{iconPacks:Material Check}"
-                ToolTip="Apply" />
+            <shared:CreateControl />
 
-        </ToolBar>
+        </ToolBarPanel>
         <Grid>
             <ListView ItemsSource="{Binding Path=PlanetPresenters}">
                 <ListView.ItemTemplate>

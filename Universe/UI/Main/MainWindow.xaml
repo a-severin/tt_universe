@@ -9,7 +9,7 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:main="clr-namespace:Universe.UI.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="Universe"
     Width="800"
     Height="450"
     d:DataContext="{d:DesignInstance d:Type=main:MainViewModel}"

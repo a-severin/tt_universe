@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="Universe.UI.Shared.CreateControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Universe.UI.Shared"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ToolBar>
+        <Button
+            x:Name="AddButton"
+            Click="AddButton_OnClick"
+            Content="{iconPacks:Material Plus}"
+            ToolTip="Add" />
+        <TextBox
+            x:Name="NameTextBox"
+            Width="150"
+            TextChanged="NameTextBox_OnTextChanged"
+            Visibility="Collapsed" />
+        <Button
+            x:Name="ApplyButton"
+            Click="ApplyButton_OnClick"
+            Content="{iconPacks:Material Check}"
+            IsEnabled="False"
+            ToolTip="Apply"
+            Visibility="Collapsed" />
+    </ToolBar>
+</UserControl>

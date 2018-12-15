@@ -89,6 +89,9 @@
       <DependentUpon>ListPlanetsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ListPlanets\ListPlanetsViewModel.cs" />
+    <Compile Include="UI\Shared\CreateControl.xaml.cs">
+      <DependentUpon>CreateControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\ListProperties\ListPropertiesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UI\ListPlanets\ListPlanetsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Shared\CreateControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

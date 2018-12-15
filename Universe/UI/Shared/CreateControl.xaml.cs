@@ -39,7 +39,7 @@ namespace Universe.UI.Shared
             AddButton.Visibility = Visibility.Visible;
             NameTextBox.Visibility = Visibility.Collapsed;
             ApplyButton.Visibility = Visibility.Collapsed;
-            if (CreateCommand?.CanExecute(NameTextBox.Text) ?? false)
+            if (CreateCommand != null && CreateCommand.CanExecute(NameTextBox.Text))
             {
                 CreateCommand.Execute(NameTextBox.Text);
             }

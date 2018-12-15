@@ -36,7 +36,7 @@ namespace Universe.UI.ListPlanets
                 await _planets.CreateAsync(name);
             }
         }
-
+#pragma warning disable 0067
         public event EventHandler CanExecuteChanged;
     }
 }

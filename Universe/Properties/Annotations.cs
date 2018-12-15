@@ -331,23 +331,23 @@ namespace Universe.Annotations
   public sealed class UsedImplicitlyAttribute : Attribute
   {
     public UsedImplicitlyAttribute()
-      : this(ImplicitUseKindFlags.Default, ImplicitUseTargetFlags.Default) { }
+      : this(ImplicitUseKind.Default, ImplicitUseTarget.Default) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseKindFlags useKindFlags)
-      : this(useKindFlags, ImplicitUseTargetFlags.Default) { }
+    public UsedImplicitlyAttribute(ImplicitUseKind useKind)
+      : this(useKind, ImplicitUseTarget.Default) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseTargetFlags targetFlags)
-      : this(ImplicitUseKindFlags.Default, targetFlags) { }
+    public UsedImplicitlyAttribute(ImplicitUseTarget target)
+      : this(ImplicitUseKind.Default, target) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
+    public UsedImplicitlyAttribute(ImplicitUseKind useKind, ImplicitUseTarget target)
     {
-      UseKindFlags = useKindFlags;
-      TargetFlags = targetFlags;
+      UseKind = useKind;
+      Target = target;
     }
 
-    public ImplicitUseKindFlags UseKindFlags { get; private set; }
+    public ImplicitUseKind UseKind { get; private set; }
 
-    public ImplicitUseTargetFlags TargetFlags { get; private set; }
+    public ImplicitUseTarget Target { get; private set; }
   }
 
   /// <summary>
@@ -358,27 +358,27 @@ namespace Universe.Annotations
   public sealed class MeansImplicitUseAttribute : Attribute
   {
     public MeansImplicitUseAttribute()
-      : this(ImplicitUseKindFlags.Default, ImplicitUseTargetFlags.Default) { }
+      : this(ImplicitUseKind.Default, ImplicitUseTarget.Default) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseKindFlags useKindFlags)
-      : this(useKindFlags, ImplicitUseTargetFlags.Default) { }
+    public MeansImplicitUseAttribute(ImplicitUseKind useKind)
+      : this(useKind, ImplicitUseTarget.Default) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseTargetFlags targetFlags)
-      : this(ImplicitUseKindFlags.Default, targetFlags) { }
+    public MeansImplicitUseAttribute(ImplicitUseTarget target)
+      : this(ImplicitUseKind.Default, target) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseKindFlags useKindFlags, ImplicitUseTargetFlags targetFlags)
+    public MeansImplicitUseAttribute(ImplicitUseKind useKind, ImplicitUseTarget target)
     {
-      UseKindFlags = useKindFlags;
-      TargetFlags = targetFlags;
+      UseKind = useKind;
+      Target = target;
     }
 
-    [UsedImplicitly] public ImplicitUseKindFlags UseKindFlags { get; private set; }
+    [UsedImplicitly] public ImplicitUseKind UseKind { get; private set; }
 
-    [UsedImplicitly] public ImplicitUseTargetFlags TargetFlags { get; private set; }
+    [UsedImplicitly] public ImplicitUseTarget Target { get; private set; }
   }
 
   [Flags]
-  public enum ImplicitUseKindFlags
+  public enum ImplicitUseKind
   {
     Default = Access | Assign | InstantiatedWithFixedConstructorSignature,
     /// <summary>Only entity marked with attribute considered used.</summary>
@@ -399,7 +399,7 @@ namespace Universe.Annotations
   /// with <see cref="MeansImplicitUseAttribute"/> or <see cref="UsedImplicitlyAttribute"/>.
   /// </summary>
   [Flags]
-  public enum ImplicitUseTargetFlags
+  public enum ImplicitUseTarget
   {
     Default = Itself,
     Itself = 1,
@@ -413,7 +413,7 @@ namespace Universe.Annotations
   /// This attribute is intended to mark publicly available API
   /// which should not be removed and so is treated as used.
   /// </summary>
-  [MeansImplicitUse(ImplicitUseTargetFlags.WithMembers)]
+  [MeansImplicitUse(ImplicitUseTarget.WithMembers)]
   public sealed class PublicAPIAttribute : Attribute
   {
     public PublicAPIAttribute() { }

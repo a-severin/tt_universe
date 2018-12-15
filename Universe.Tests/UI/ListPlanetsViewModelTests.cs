@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
 using Universe.Model.InMemory;
@@ -33,14 +34,14 @@ namespace Universe.Tests.UI
         }
 
         [TestMethod]
-        public void CreateCommand_AddPlanet_NotEmptyParameter()
+        public async Task CreateCommand_AddPlanet_NotEmptyParameter()
         {
             var planets = new AsyncPlanets(universe.Planets());
             var eventInvoked = false;
             planets.NewPlanetEvent += (sender, args) => eventInvoked = true;
             var createPlanet = new CreatePlanet(planets);
 
-            createPlanet.Execute("Test");
+            await Task.Run(() => createPlanet.Execute("Test"));
 
             Assert.IsTrue(planets.Any());
             Assert.IsTrue(eventInvoked);

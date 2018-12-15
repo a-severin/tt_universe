@@ -28,5 +28,11 @@
             IsEnabled="False"
             ToolTip="Apply"
             Visibility="Collapsed" />
+        <Button
+            x:Name="CancelButton"
+            Click="CancelButton_OnClick"
+            Content="{iconPacks:Material Cancel}"
+            ToolTip="Cancel"
+            Visibility="Collapsed" />
     </ToolBar>
 </UserControl>

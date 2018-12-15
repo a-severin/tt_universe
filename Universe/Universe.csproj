@@ -95,6 +95,9 @@
     <Compile Include="UI\Shared\CreateControl.xaml.cs">
       <DependentUpon>CreateControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Shared\NamedListItemControl.xaml.cs">
+      <DependentUpon>NamedListItemControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="UI\ListProperties\ListPropertiesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Shared\CreateControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Shared\NamedListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

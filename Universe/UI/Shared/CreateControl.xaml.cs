@@ -32,6 +32,7 @@ namespace Universe.UI.Shared
             AddButton.Visibility = Visibility.Collapsed;
             NameTextBox.Visibility = Visibility.Visible;
             ApplyButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Visible;
         }
 
         private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
@@ -39,6 +40,7 @@ namespace Universe.UI.Shared
             AddButton.Visibility = Visibility.Visible;
             NameTextBox.Visibility = Visibility.Collapsed;
             ApplyButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Collapsed;
             if (CreateCommand != null && CreateCommand.CanExecute(NameTextBox.Text))
             {
                 CreateCommand.Execute(NameTextBox.Text);
@@ -54,6 +56,15 @@ namespace Universe.UI.Shared
         private void NameTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             ApplyButton.IsEnabled = !string.IsNullOrEmpty(NameTextBox.Text);
+        }
+
+        private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            AddButton.Visibility = Visibility.Visible;
+            NameTextBox.Visibility = Visibility.Collapsed;
+            ApplyButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Collapsed;
+            NameTextBox.Text = string.Empty;
         }
     }
 }

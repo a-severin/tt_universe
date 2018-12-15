@@ -41,7 +41,7 @@ namespace Universe.Tests.UI
             planets.NewPlanetEvent += (sender, args) => eventInvoked = true;
             var createPlanet = new CreatePlanet(planets);
 
-            await Task.Run(() => createPlanet.Execute("Test"));
+            await createPlanet.ExecuteAsync("Test");
 
             Assert.IsTrue(planets.Any());
             Assert.IsTrue(eventInvoked);

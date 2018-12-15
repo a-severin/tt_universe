@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Universe.Model;
 
@@ -24,6 +25,11 @@ namespace Universe.UI.ListPlanets
         }
 
         public async void Execute(object parameter)
+        {
+            await ExecuteAsync(parameter);
+        }
+
+        public async Task ExecuteAsync(object parameter)
         {
             if (parameter is string name)
             {

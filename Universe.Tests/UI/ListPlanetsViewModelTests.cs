@@ -2,12 +2,13 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
+using Universe.Model.InMemory;
 using Universe.UI.ListPlanets;
 
 namespace Universe.Tests.UI
 {
     [TestClass]
-    public class ListPlanetsViewModelTests: BaseUniverseTests
+    public class ListPlanetsViewModelTests : BaseUniverseTests
     {
         [TestMethod]
         public void Constructor_NotEmptyCollection()
@@ -15,6 +16,34 @@ namespace Universe.Tests.UI
             Assert.IsTrue(new ListPlanetsViewModel(
                 new TestDataUniverse(universe)
             ).PlanetPresenters.Any());
+        }
+
+        [TestMethod]
+        public void Constructor_InitializeCommands()
+        {
+            Assert.IsNotNull(new ListPlanetsViewModel(universe).CreatePlanet);
+        }
+
+        [TestMethod]
+        public void CreateCommand_CanExecute_NotEmptyParameter()
+        {
+            var createPlanet = new CreatePlanet(new AsyncPlanets(universe.Planets()));
+
+            Assert.IsTrue(createPlanet.CanExecute("Test"));
+        }
+
+        [TestMethod]
+        public void CreateCommand_AddPlanet_NotEmptyParameter()
+        {
+            var planets = new AsyncPlanets(universe.Planets());
+            var eventInvoked = false;
+            planets.NewPlanetEvent += (sender, args) => eventInvoked = true;
+            var createPlanet = new CreatePlanet(planets);
+
+            createPlanet.Execute("Test");
+
+            Assert.IsTrue(planets.Any());
+            Assert.IsTrue(eventInvoked);
         }
     }
 }

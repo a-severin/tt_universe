@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Universe.Model.InMemory
@@ -23,5 +24,6 @@ namespace Universe.Model.InMemory
             _planets.Add(planet);
             return planet;
         }
+
     }
 }

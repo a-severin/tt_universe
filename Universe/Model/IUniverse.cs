@@ -1,4 +1,7 @@
-﻿namespace Universe.Model
+﻿using System;
+using System.Threading.Tasks;
+
+namespace Universe.Model
 {
     public interface IUniverse
     {

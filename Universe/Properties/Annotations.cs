@@ -331,23 +331,23 @@ namespace Universe.Annotations
   public sealed class UsedImplicitlyAttribute : Attribute
   {
     public UsedImplicitlyAttribute()
-      : this(ImplicitUseKind.Default, ImplicitUseTarget.Default) { }
+      : this(ImplicitUseKinds.Default, ImplicitUseTargets.Default) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseKind useKind)
-      : this(useKind, ImplicitUseTarget.Default) { }
+    public UsedImplicitlyAttribute(ImplicitUseKinds useKinds)
+      : this(useKinds, ImplicitUseTargets.Default) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseTarget target)
-      : this(ImplicitUseKind.Default, target) { }
+    public UsedImplicitlyAttribute(ImplicitUseTargets targets)
+      : this(ImplicitUseKinds.Default, targets) { }
 
-    public UsedImplicitlyAttribute(ImplicitUseKind useKind, ImplicitUseTarget target)
+    public UsedImplicitlyAttribute(ImplicitUseKinds useKinds, ImplicitUseTargets targets)
     {
-      UseKind = useKind;
-      Target = target;
+      UseKinds = useKinds;
+      Targets = targets;
     }
 
-    public ImplicitUseKind UseKind { get; private set; }
+    public ImplicitUseKinds UseKinds { get; private set; }
 
-    public ImplicitUseTarget Target { get; private set; }
+    public ImplicitUseTargets Targets { get; private set; }
   }
 
   /// <summary>
@@ -358,27 +358,27 @@ namespace Universe.Annotations
   public sealed class MeansImplicitUseAttribute : Attribute
   {
     public MeansImplicitUseAttribute()
-      : this(ImplicitUseKind.Default, ImplicitUseTarget.Default) { }
+      : this(ImplicitUseKinds.Default, ImplicitUseTargets.Default) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseKind useKind)
-      : this(useKind, ImplicitUseTarget.Default) { }
+    public MeansImplicitUseAttribute(ImplicitUseKinds useKinds)
+      : this(useKinds, ImplicitUseTargets.Default) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseTarget target)
-      : this(ImplicitUseKind.Default, target) { }
+    public MeansImplicitUseAttribute(ImplicitUseTargets targets)
+      : this(ImplicitUseKinds.Default, targets) { }
 
-    public MeansImplicitUseAttribute(ImplicitUseKind useKind, ImplicitUseTarget target)
+    public MeansImplicitUseAttribute(ImplicitUseKinds useKinds, ImplicitUseTargets targets)
     {
-      UseKind = useKind;
-      Target = target;
+      UseKinds = useKinds;
+      Targets = targets;
     }
 
-    [UsedImplicitly] public ImplicitUseKind UseKind { get; private set; }
+    [UsedImplicitly] public ImplicitUseKinds UseKinds { get; private set; }
 
-    [UsedImplicitly] public ImplicitUseTarget Target { get; private set; }
+    [UsedImplicitly] public ImplicitUseTargets Targets { get; private set; }
   }
 
   [Flags]
-  public enum ImplicitUseKind
+  public enum ImplicitUseKinds
   {
     Default = Access | Assign | InstantiatedWithFixedConstructorSignature,
     /// <summary>Only entity marked with attribute considered used.</summary>
@@ -399,7 +399,7 @@ namespace Universe.Annotations
   /// with <see cref="MeansImplicitUseAttribute"/> or <see cref="UsedImplicitlyAttribute"/>.
   /// </summary>
   [Flags]
-  public enum ImplicitUseTarget
+  public enum ImplicitUseTargets
   {
     Default = Itself,
     Itself = 1,
@@ -413,12 +413,12 @@ namespace Universe.Annotations
   /// This attribute is intended to mark publicly available API
   /// which should not be removed and so is treated as used.
   /// </summary>
-  [MeansImplicitUse(ImplicitUseTarget.WithMembers)]
-  public sealed class PublicAPIAttribute : Attribute
+  [MeansImplicitUse(ImplicitUseTargets.WithMembers)]
+  public sealed class PublicApiAttribute : Attribute
   {
-    public PublicAPIAttribute() { }
+    public PublicApiAttribute() { }
 
-    public PublicAPIAttribute([NotNull] string comment)
+    public PublicApiAttribute([NotNull] string comment)
     {
       Comment = comment;
     }
@@ -832,16 +832,15 @@ namespace Universe.Annotations
   [AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Property)]
   public sealed class CollectionAccessAttribute : Attribute
   {
-    public CollectionAccessAttribute(CollectionAccessType collectionAccessType)
+    public CollectionAccessAttribute(CollectionAccessTypes collectionAccessTypes)
     {
-      CollectionAccessType = collectionAccessType;
+      CollectionAccessTypes = collectionAccessTypes;
     }
 
-    public CollectionAccessType CollectionAccessType { get; private set; }
+    public CollectionAccessTypes CollectionAccessTypes { get; private set; }
   }
 
-  [Flags]
-  public enum CollectionAccessType
+  public enum CollectionAccessTypes
   {
     /// <summary>Method does not use or modify content of the collection.</summary>
     None = 0,

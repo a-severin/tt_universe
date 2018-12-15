@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -7,6 +8,7 @@ namespace Universe.UI.Shared
     /// <summary>
     ///     Interaction logic for NamedListItemControl.xaml
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public partial class NamedListItemControl : UserControl
     {
         public static readonly DependencyProperty ItemNameProperty = DependencyProperty.Register(nameof(ItemName),

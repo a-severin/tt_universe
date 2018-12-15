@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Universe.UI.Shared
     /// <summary>
     /// Interaction logic for CreateControl.xaml
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public partial class CreateControl : UserControl
     {
         public static readonly DependencyProperty CreateCommandProperty = DependencyProperty.Register(nameof(CreateCommand), typeof(ICommand), typeof(CreateControl), new PropertyMetadata(null));

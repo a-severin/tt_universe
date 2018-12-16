@@ -22,6 +22,14 @@
                 ToolTip="Add" />
         </ToolBar>
 
-        <ListView ItemsSource="{Binding Path=PlanetProperties}" />
+        <ListView ItemsSource="{Binding Path=PlanetProperties}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="local:PlanetPropertyPresenter">
+                    <local:PlanetPropertyControl
+                        DeleteItem="{Binding Path=DeleteItem}"
+                        Value="{Binding Path=Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </DockPanel>
 </UserControl>

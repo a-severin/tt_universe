@@ -80,11 +80,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\AsyncPlanet.cs" />
+    <Compile Include="Model\AsyncPlanetProperty.cs" />
     <Compile Include="Model\AsyncPlanets.cs" />
     <Compile Include="Model\InMemory\Planet.cs" />
+    <Compile Include="Model\InMemory\PlanetProperties.cs" />
+    <Compile Include="Model\InMemory\PlanetProperty.cs" />
     <Compile Include="Model\InMemory\Planets.cs" />
     <Compile Include="Model\InMemory\Properties.cs" />
     <Compile Include="Model\InMemory\Property.cs" />
+    <Compile Include="Model\IPlanetProperties.cs" />
+    <Compile Include="Model\IPlanetProperty.cs" />
     <Compile Include="Model\NewPlanetEventArgs.cs" />
     <Compile Include="Model\TestDataUniverse.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -95,10 +100,15 @@
       <DependentUpon>ListPlanetsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ListPlanets\ListPlanetsViewModel.cs" />
+    <Compile Include="UI\PlanetDescription\DeleteItem.cs" />
     <Compile Include="UI\PlanetDescription\PlanetDescriptionControl.xaml.cs">
       <DependentUpon>PlanetDescriptionControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\PlanetDescription\PlanetDescriptionViewModel.cs" />
+    <Compile Include="UI\PlanetDescription\PlanetPropertyControl.xaml.cs">
+      <DependentUpon>PlanetPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PlanetDescription\PlanetPropertyPresenter.cs" />
     <Compile Include="UI\PlanetDescription\PropertyPresenter.cs" />
     <Compile Include="UI\Shared\CreateControl.xaml.cs">
       <DependentUpon>CreateControl.xaml</DependentUpon>
@@ -133,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\PlanetDescription\PlanetDescriptionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\PlanetDescription\PlanetPropertyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

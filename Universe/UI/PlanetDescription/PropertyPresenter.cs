@@ -9,6 +9,7 @@ namespace Universe.UI.PlanetDescription
         public PropertyPresenter(IProperty property)
         {
             Property = property;
+            
         }
 
         public string Text => Property.Value();

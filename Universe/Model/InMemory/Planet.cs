@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Universe.Model.InMemory
 {
@@ -36,32 +33,6 @@ namespace Universe.Model.InMemory
         public void Delete()
         {
             _delete(this);
-        }
-    }
-
-    internal sealed class PlanetProperties : IPlanetProperties{
-
-        private List<IProperty> _properties = new List<IProperty>();
-
-        public IEnumerator<IProperty> GetEnumerator()
-        {
-            return _properties.GetEnumerator();
-        }
-
-        public void Add(IProperty property)
-        {
-            _properties.Add(property);
-        }
-
-        public bool Contains(IProperty property)
-        {
-            var value = property.Value();
-            return _properties.Any(_ => _.Value().Equals(value, StringComparison.CurrentCulture));
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Universe.UI.PlanetDescription
     /// <summary>
     /// Interaction logic for PlanetDescriptionControl.xaml
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public sealed partial class PlanetDescriptionControl : UserControl
     {
         public PlanetDescriptionControl()

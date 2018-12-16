@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,8 @@ namespace Universe.UI.PlanetDescription
     /// <summary>
     /// Interaction logic for PlanetPropertyControl.xaml
     /// </summary>
-    public partial class PlanetPropertyControl : UserControl
+    [ExcludeFromCodeCoverage]
+    public partial class PlanetPropertyControl
     {
         public static readonly DependencyProperty DeleteItemProperty = DependencyProperty.Register(nameof(DeleteItem),
             typeof(ICommand), typeof(PlanetPropertyControl), new PropertyMetadata(null));

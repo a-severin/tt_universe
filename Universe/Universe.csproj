@@ -82,6 +82,7 @@
     <Compile Include="Model\AsyncPlanet.cs" />
     <Compile Include="Model\AsyncPlanetProperty.cs" />
     <Compile Include="Model\AsyncPlanets.cs" />
+    <Compile Include="Model\AsyncProperties.cs" />
     <Compile Include="Model\InMemory\Planet.cs" />
     <Compile Include="Model\InMemory\PlanetProperties.cs" />
     <Compile Include="Model\InMemory\PlanetProperty.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Model\IPlanetProperties.cs" />
     <Compile Include="Model\IPlanetProperty.cs" />
     <Compile Include="Model\NewPlanetEventArgs.cs" />
+    <Compile Include="Model\NewPropertyEventArgs.cs" />
     <Compile Include="Model\TestDataUniverse.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UI\ListPlanets\CreatePlanet.cs" />
@@ -100,6 +102,7 @@
       <DependentUpon>ListPlanetsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ListPlanets\ListPlanetsViewModel.cs" />
+    <Compile Include="UI\ListProperties\CreateProperty.cs" />
     <Compile Include="UI\PlanetDescription\DeleteItem.cs" />
     <Compile Include="UI\PlanetDescription\PlanetDescriptionControl.xaml.cs">
       <DependentUpon>PlanetDescriptionControl.xaml</DependentUpon>

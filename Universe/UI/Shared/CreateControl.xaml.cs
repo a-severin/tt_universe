@@ -35,6 +35,8 @@ namespace Universe.UI.Shared
             NameTextBox.Visibility = Visibility.Visible;
             ApplyButton.Visibility = Visibility.Visible;
             CancelButton.Visibility = Visibility.Visible;
+
+            NameTextBox.Focus();
         }
 
         private void ApplyButton_OnClick(object sender, RoutedEventArgs e)
@@ -46,6 +48,7 @@ namespace Universe.UI.Shared
             if (CreateCommand != null && CreateCommand.CanExecute(NameTextBox.Text))
             {
                 CreateCommand.Execute(NameTextBox.Text);
+                NameTextBox.Text = string.Empty;
             }
         }
 
@@ -67,6 +70,15 @@ namespace Universe.UI.Shared
             ApplyButton.Visibility = Visibility.Collapsed;
             CancelButton.Visibility = Visibility.Collapsed;
             NameTextBox.Text = string.Empty;
+        }
+
+        private void NameTextBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ApplyButton_OnClick(sender, new RoutedEventArgs());
+                AddButton.Focus();
+            }
         }
     }
 }

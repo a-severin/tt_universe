@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    Focusable="False"
     mc:Ignorable="d">
     <ToolBar>
         <Button
@@ -19,6 +20,7 @@
         <TextBox
             x:Name="NameTextBox"
             Width="150"
+            KeyDown="NameTextBox_OnKeyDown"
             TextChanged="NameTextBox_OnTextChanged"
             Visibility="Collapsed" />
         <Button

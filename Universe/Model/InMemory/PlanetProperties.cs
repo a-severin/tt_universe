@@ -7,7 +7,7 @@ namespace Universe.Model.InMemory
 {
     internal sealed class PlanetProperties : IPlanetProperties
     {
-        private List<IPlanetProperty> _properties = new List<IPlanetProperty>();
+        private readonly List<IPlanetProperty> _properties = new List<IPlanetProperty>();
 
         public IEnumerator<IPlanetProperty> GetEnumerator()
         {

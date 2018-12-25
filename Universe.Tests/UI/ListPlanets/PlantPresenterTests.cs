@@ -13,6 +13,7 @@ namespace Universe.Tests.UI.ListPlanets
     public class PlantPresenterTests: BaseUniverseTests
     {
         [TestMethod]
+        [ExcludeFromCodeCoverage]
         public void Constructor_Initialize()
         {
             var name = "Test";

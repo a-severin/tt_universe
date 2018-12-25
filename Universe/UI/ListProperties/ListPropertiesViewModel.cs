@@ -7,7 +7,7 @@ namespace Universe.UI.ListProperties
 {
     public sealed class ListPropertiesViewModel : ObservableObject
     {
-        private AsyncProperties _properties;
+        private readonly AsyncProperties _properties;
 
         public ListPropertiesViewModel(IUniverse universe)
         {
@@ -16,7 +16,7 @@ namespace Universe.UI.ListProperties
 
             CreateProperty = new CreateProperty(_properties);
 
-            _loadProperties(universe);
+            _loadProperties();
         }
 
         private void _addProperty(IProperty property)
@@ -25,7 +25,7 @@ namespace Universe.UI.ListProperties
                 presenter => PropertyPresenters.Remove(presenter)));
         }
 
-        private void _loadProperties(IUniverse universe)
+        private void _loadProperties()
         {
             foreach (var property in _properties)
             {

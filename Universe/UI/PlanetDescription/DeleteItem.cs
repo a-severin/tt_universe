@@ -29,6 +29,7 @@ namespace Universe.UI.PlanetDescription
             await _property.DeleteAsync();
         }
 
+#pragma warning disable 0067
         public event EventHandler CanExecuteChanged;
     }
 }

@@ -6,7 +6,7 @@ namespace Universe.Model.InMemory
     {
         private readonly Action<Planet> _delete;
         private string _name;
-        private PlanetProperties _planetProperties = new PlanetProperties();
+        private readonly PlanetProperties _planetProperties = new PlanetProperties();
 
         public Planet(string name, Action<Planet> delete)
         {

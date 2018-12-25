@@ -40,6 +40,7 @@
             <TextBox
                 x:Name="EditNameTextBox"
                 Grid.Column="0"
+                KeyDown="EditNameTextBox_OnKeyDown"
                 VerticalContentAlignment="Center" />
             <Button
                 x:Name="ApplyEditButton"

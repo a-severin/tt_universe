@@ -21,7 +21,10 @@
             <ListView ItemsSource="{Binding Path=PropertyPresenters}">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="local:PropertyPresenter">
-                        <TextBlock Text="{Binding Path=Text}" />
+                        <shared:NamedListItemControl
+                            DeleteItem="{Binding Path=DeleteItem}"
+                            EditItemName="{Binding Path=EditName}"
+                            ItemName="{Binding Path=Text}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

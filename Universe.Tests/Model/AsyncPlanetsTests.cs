@@ -40,5 +40,22 @@ namespace Universe.Tests.Model
             Assert.IsTrue(eventInvoked);
             Assert.IsTrue(asyncPlanets.Any());
         }
+
+        [TestMethod]
+        public void Planets_Empty_AfterDelete()
+        {
+            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            asyncPlanets.Create("Test Planet");
+            asyncPlanets.First().Delete();
+            Assert.IsFalse(asyncPlanets.Any());
+        }
+
+        [TestMethod]
+        public void Planets_NotEmpty_AfterCreateOne()
+        {
+            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            asyncPlanets.Create("Test Planet");
+            Assert.IsTrue(asyncPlanets.Any());
+        }
     }
 }

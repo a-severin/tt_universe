@@ -3,22 +3,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Universe.Model;
 
-namespace Universe.UI.ListPlanets
+namespace Universe.UI.ListProperties
 {
-    public sealed class EditPlanetName : ICommand
+    public class EditPropertyValue : ICommand
     {
-        private readonly AsyncPlanet _planet;
+        private readonly AsyncProperty _property;
 
-        public EditPlanetName(AsyncPlanet planet)
+        public EditPropertyValue(AsyncProperty property)
         {
-            _planet = planet;
+            _property = property;
         }
 
         public bool CanExecute(object parameter)
         {
-            if (parameter is string name)
+            if (parameter is string value)
             {
-                return !string.IsNullOrEmpty(name);
+                return !string.IsNullOrEmpty(value);
             }
 
             return false;
@@ -31,9 +31,9 @@ namespace Universe.UI.ListPlanets
 
         public async Task ExecuteAsync(object parameter)
         {
-            if (parameter is string name)
+            if (parameter is string value)
             {
-                await _planet.RenameAsync(name);
+                await _property.ChangeAsync(value);
             }
         }
 

@@ -53,10 +53,8 @@ namespace Universe.UI.ListPlanets
 
         private void _addPlanet(IPlanet planet)
         {
-            var asyncPlanet = new AsyncPlanet(planet);
-            var planetPresenter = new PlanetPresenter(asyncPlanet);
-            PlanetPresenters.Add(planetPresenter);
-            asyncPlanet.PlanetDeleted += (sender, args) => { PlanetPresenters.Remove(planetPresenter); };
+            PlanetPresenters.Add(new PlanetPresenter(new AsyncPlanet(planet),
+                presenter => PlanetPresenters.Remove(presenter)));
         }
     }
 }

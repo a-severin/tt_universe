@@ -21,7 +21,8 @@ namespace Universe.UI.ListProperties
 
         private void _addProperty(IProperty property)
         {
-            PropertyPresenters.Add(new PropertyPresenter(property));
+            PropertyPresenters.Add(new PropertyPresenter(new AsyncProperty(property),
+                presenter => PropertyPresenters.Remove(presenter)));
         }
 
         private void _loadProperties(IUniverse universe)
@@ -36,20 +37,5 @@ namespace Universe.UI.ListProperties
             new ObservableCollection<PropertyPresenter>();
 
         public ICommand CreateProperty { get; }
-    }
-
-    public sealed class PropertyPresenter
-    {
-        private readonly IProperty _property;
-
-        public PropertyPresenter(IProperty property)
-        {
-            _property = property;
-        }
-
-        public string Text
-        {
-            get => _property.Value();
-        }
     }
 }

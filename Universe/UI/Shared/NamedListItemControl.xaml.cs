@@ -94,5 +94,13 @@ namespace Universe.UI.Shared
                 DeleteItem.Execute(null);
             }
         }
+
+        private void EditNameTextBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ApplyEditButton_OnClick(sender, new RoutedEventArgs());
+            }
+        }
     }
 }

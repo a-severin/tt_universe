@@ -9,7 +9,7 @@ namespace Universe.Tests.UI.ListProperties
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class ListPropertiesViewModelTests: BaseUniverseTests
+    public class ListPropertiesViewModelTests : BaseUniverseTests
     {
         [TestMethod]
         public void Constructor_Initialize()

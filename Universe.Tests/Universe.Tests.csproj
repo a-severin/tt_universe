@@ -59,16 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUniverseTests.cs" />
+    <Compile Include="Model\AsyncPropertyTests.cs" />
     <Compile Include="Model\PlanetTests.cs" />
     <Compile Include="Model\AsyncPlanetTests.cs" />
     <Compile Include="Model\AsyncPlanetsTests.cs" />
     <Compile Include="Model\AsyncPropertiesTests.cs" />
-    <Compile Include="Model\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\ListPlanets\ListPlanetsViewModelTests.cs" />
     <Compile Include="UI\ListPlanets\PlantPresenterTests.cs" />
     <Compile Include="UI\ListPropertiesViewModelTests.cs" />
     <Compile Include="UI\ListProperties\ListPropertiesViewModelTests.cs" />
+    <Compile Include="UI\ListProperties\PropertyPresenterTests.cs" />
     <Compile Include="UI\Main\MainViewModelTests.cs" />
     <Compile Include="UI\PlanetDescription\DeleteItemTests.cs" />
     <Compile Include="UI\PlanetDescription\PlanetDescriptionViewModelTests.cs" />

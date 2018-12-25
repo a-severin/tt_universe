@@ -83,6 +83,7 @@
     <Compile Include="Model\AsyncPlanetProperty.cs" />
     <Compile Include="Model\AsyncPlanets.cs" />
     <Compile Include="Model\AsyncProperties.cs" />
+    <Compile Include="Model\AsyncProperty.cs" />
     <Compile Include="Model\InMemory\Planet.cs" />
     <Compile Include="Model\InMemory\PlanetProperties.cs" />
     <Compile Include="Model\InMemory\PlanetProperty.cs" />
@@ -103,6 +104,9 @@
     </Compile>
     <Compile Include="UI\ListPlanets\ListPlanetsViewModel.cs" />
     <Compile Include="UI\ListProperties\CreateProperty.cs" />
+    <Compile Include="UI\ListProperties\DeleteProperty.cs" />
+    <Compile Include="UI\ListProperties\EditPropertyValue.cs" />
+    <Compile Include="UI\ListProperties\PropertyPresenter.cs" />
     <Compile Include="UI\PlanetDescription\DeleteItem.cs" />
     <Compile Include="UI\PlanetDescription\PlanetDescriptionControl.xaml.cs">
       <DependentUpon>PlanetDescriptionControl.xaml</DependentUpon>
@@ -197,7 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Model\Sqlite\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="universe.ico" />

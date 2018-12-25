@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Universe.Model
@@ -18,11 +17,6 @@ namespace Universe.Model
             return _inner.Name();
         }
 
-        public async Task<string> NameAsync()
-        {
-            return await Task.Run(() => _inner.Name());
-        }
-
         public void Rename(string name)
         {
             _inner.Rename(name);
@@ -33,16 +27,6 @@ namespace Universe.Model
         {
             return _inner.Properties();
         }
-
-        public async Task RenameAsync(string name)
-        {
-            await Task.Run(() => _inner.Rename(name));
-            PlanetRenamed?.Invoke(this, EventArgs.Empty);
-        }
-
-        public event EventHandler PlanetRenamed; 
-
-        
 
         public void Delete()
         {
@@ -56,6 +40,19 @@ namespace Universe.Model
             PlanetDeleted?.Invoke(this, EventArgs.Empty);
         }
 
+        public async Task<string> NameAsync()
+        {
+            return await Task.Run(() => _inner.Name());
+        }
+
         public event EventHandler PlanetDeleted;
+
+        public event EventHandler PlanetRenamed;
+
+        public async Task RenameAsync(string name)
+        {
+            await Task.Run(() => _inner.Rename(name));
+            PlanetRenamed?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

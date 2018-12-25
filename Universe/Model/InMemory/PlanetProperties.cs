@@ -16,7 +16,7 @@ namespace Universe.Model.InMemory
 
         public IPlanetProperty Add(IProperty property)
         {
-            var planetProperty = new PlanetProperty(property.Value(), _ => _properties.Remove(_));
+            var planetProperty = new PlanetProperty(property, _ => _properties.Remove(_));
             _properties.Add(planetProperty);
             return planetProperty;
         }

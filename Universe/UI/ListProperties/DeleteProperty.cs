@@ -3,25 +3,20 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Universe.Model;
 
-namespace Universe.UI.ListPlanets
+namespace Universe.UI.ListProperties
 {
-    public sealed class EditPlanetName : ICommand
+    public class DeleteProperty: ICommand
     {
-        private readonly AsyncPlanet _planet;
+        private readonly AsyncProperty _property;
 
-        public EditPlanetName(AsyncPlanet planet)
+        public DeleteProperty(AsyncProperty property)
         {
-            _planet = planet;
+            _property = property;
         }
 
         public bool CanExecute(object parameter)
         {
-            if (parameter is string name)
-            {
-                return !string.IsNullOrEmpty(name);
-            }
-
-            return false;
+            return true;
         }
 
         public async void Execute(object parameter)
@@ -31,10 +26,7 @@ namespace Universe.UI.ListPlanets
 
         public async Task ExecuteAsync(object parameter)
         {
-            if (parameter is string name)
-            {
-                await _planet.RenameAsync(name);
-            }
+            await _property.DeleteAsync();
         }
 
 #pragma warning disable 0067

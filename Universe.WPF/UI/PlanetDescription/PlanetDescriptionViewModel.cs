@@ -5,7 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Universe.Model;
 
-namespace Universe.UI.PlanetDescription
+namespace Universe.WPF.UI.PlanetDescription
 {
     public sealed class PlanetDescriptionViewModel : ObservableObject
     {

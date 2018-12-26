@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
-using Universe.UI.ListPlanets;
+using Universe.WPF.UI.ListPlanets;
 
 namespace Universe.Tests.UI.ListPlanets
 {

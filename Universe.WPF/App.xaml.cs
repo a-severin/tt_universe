@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using Universe.Model;
-using Universe.UI.Main;
+using Universe.WPF.UI.Main;
 
-namespace Universe
+namespace Universe.WPF
 {
     /// <summary>
     /// Interaction logic for App.xaml

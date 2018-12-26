@@ -2,9 +2,8 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using Universe.Model;
-using Universe.Model.InMemory;
 
-namespace Universe.UI.ListPlanets
+namespace Universe.WPF.UI.ListPlanets
 {
     public sealed class PlanetPresenter : ObservableObject
     {

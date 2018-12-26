@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Universe.Model;
 
-namespace Universe.UI.ListProperties
+namespace Universe.WPF.UI.ListProperties
 {
     public sealed class CreateProperty : ICommand
     {

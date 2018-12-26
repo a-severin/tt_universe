@@ -3,7 +3,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using Universe.Model;
 
-namespace Universe.UI.ListProperties
+namespace Universe.WPF.UI.ListProperties
 {
     public sealed class PropertyPresenter : ObservableObject
     {

@@ -1,6 +1,6 @@
 ﻿using Universe.Model;
 
-namespace Universe.UI.PlanetDescription
+namespace Universe.WPF.UI.PlanetDescription
 {
     public sealed class PropertyPresenter
     {

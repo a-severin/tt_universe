@@ -5,7 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Universe.Model;
 
-namespace Universe.UI.ListPlanets
+namespace Universe.WPF.UI.ListPlanets
 {
     public sealed class ListPlanetsViewModel : ObservableObject
     {

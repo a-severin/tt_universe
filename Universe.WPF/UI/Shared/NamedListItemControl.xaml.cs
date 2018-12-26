@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Universe.UI.Shared
+namespace Universe.WPF.UI.Shared
 {
     /// <summary>
     ///     Interaction logic for NamedListItemControl.xaml

@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
-using Universe.UI.PlanetDescription;
+using Universe.WPF.UI.PlanetDescription;
 
 namespace Universe.Tests.UI.PlanetDescription
 {

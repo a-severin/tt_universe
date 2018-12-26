@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
-using Universe.UI.ListProperties;
+using Universe.WPF.UI.ListProperties;
 
 namespace Universe.Tests.UI.ListProperties
 {

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Universe.Model;
 
-namespace Universe.UI.ListPlanets
+namespace Universe.WPF.UI.ListPlanets
 {
     public sealed class CreatePlanet : ICommand
     {

@@ -1,13 +1,13 @@
 ﻿<UserControl
-    x:Class="Universe.UI.ListPlanets.ListPlanetsControl"
+    x:Class="Universe.WPF.UI.ListPlanets.ListPlanetsControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-    xmlns:local="clr-namespace:Universe.UI.ListPlanets"
+    xmlns:listPlanets="clr-namespace:Universe.WPF.UI.ListPlanets"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shared="clr-namespace:Universe.UI.Shared"
-    d:DataContext="{d:DesignInstance d:Type=local:ListPlanetsViewModel}"
+    xmlns:shared="clr-namespace:Universe.WPF.UI.Shared"
+    d:DataContext="{d:DesignInstance d:Type=listPlanets:ListPlanetsViewModel}"
     mc:Ignorable="d">
     <DockPanel>
         <ToolBarPanel
@@ -29,7 +29,7 @@
                 ItemsSource="{Binding Path=PlanetPresenters}"
                 SelectedItem="{Binding Path=SelectedPlanetPresenter, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
-                    <DataTemplate DataType="local:PlanetPresenter">
+                    <DataTemplate DataType="listPlanets:PlanetPresenter">
                         <shared:NamedListItemControl
                             DeleteItem="{Binding Path=DeleteItem}"
                             EditItemName="{Binding Path=EditName}"

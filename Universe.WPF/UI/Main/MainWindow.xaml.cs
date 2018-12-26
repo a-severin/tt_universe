@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Windows;
 using MahApps.Metro.Controls;
 
-namespace Universe.UI.Main
+namespace Universe.WPF.UI.Main
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

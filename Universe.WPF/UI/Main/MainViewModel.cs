@@ -1,10 +1,10 @@
 ﻿using GalaSoft.MvvmLight;
 using Universe.Model;
-using Universe.UI.ListPlanets;
-using Universe.UI.ListProperties;
-using Universe.UI.PlanetDescription;
+using Universe.WPF.UI.ListPlanets;
+using Universe.WPF.UI.ListProperties;
+using Universe.WPF.UI.PlanetDescription;
 
-namespace Universe.UI.Main
+namespace Universe.WPF.UI.Main
 {
     public sealed class MainViewModel: ObservableObject
     {

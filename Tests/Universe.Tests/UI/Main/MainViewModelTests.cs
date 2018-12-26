@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Universe.UI.Main;
+using Universe.WPF.UI.Main;
 
 namespace Universe.Tests.UI.Main
 {

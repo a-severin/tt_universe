@@ -75,6 +75,10 @@
     <Compile Include="UI\PlanetDescription\PlanetDescriptionViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Universe.Model\Universe.Model.csproj">
+      <Project>{8e8cac38-8dab-4d90-aed1-33725c7cfef8}</Project>
+      <Name>Universe.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Universe\Universe.csproj">
       <Project>{446e2d6f-aa48-4a10-b45b-b49b9ac8217e}</Project>
       <Name>Universe</Name>

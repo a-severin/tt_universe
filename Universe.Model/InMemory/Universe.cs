@@ -1,6 +1,6 @@
 ﻿namespace Universe.Model.InMemory
 {
-    internal sealed class Universe : IUniverse
+    public sealed class Universe : IUniverse
     {
         private readonly Planets _planets = new Planets();
         private readonly Properties _properties = new Properties();

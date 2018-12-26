@@ -79,22 +79,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\AsyncPlanet.cs" />
-    <Compile Include="Model\AsyncPlanetProperty.cs" />
-    <Compile Include="Model\AsyncPlanets.cs" />
-    <Compile Include="Model\AsyncProperties.cs" />
-    <Compile Include="Model\AsyncProperty.cs" />
-    <Compile Include="Model\InMemory\Planet.cs" />
-    <Compile Include="Model\InMemory\PlanetProperties.cs" />
-    <Compile Include="Model\InMemory\PlanetProperty.cs" />
-    <Compile Include="Model\InMemory\Planets.cs" />
-    <Compile Include="Model\InMemory\Properties.cs" />
-    <Compile Include="Model\InMemory\Property.cs" />
-    <Compile Include="Model\IPlanetProperties.cs" />
-    <Compile Include="Model\IPlanetProperty.cs" />
-    <Compile Include="Model\NewPlanetEventArgs.cs" />
-    <Compile Include="Model\NewPropertyEventArgs.cs" />
-    <Compile Include="Model\TestDataUniverse.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UI\ListPlanets\CreatePlanet.cs" />
     <Compile Include="UI\ListPlanets\DeletePlanet.cs" />
@@ -167,12 +151,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\InMemory\Universe.cs" />
-    <Compile Include="Model\IPlanet.cs" />
-    <Compile Include="Model\IPlanets.cs" />
-    <Compile Include="Model\IProperties.cs" />
-    <Compile Include="Model\IProperty.cs" />
-    <Compile Include="Model\IUniverse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -204,6 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="universe.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Universe.Model\Universe.Model.csproj">
+      <Project>{8e8cac38-8dab-4d90-aed1-33725c7cfef8}</Project>
+      <Name>Universe.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Data.SQLite;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Universe.Model;
 
@@ -12,7 +13,12 @@ namespace Universe.Tests
         [TestInitialize]
         public void Setup()
         {
-            universe = new Universe.Model.InMemory.Universe();
+#if SQLite
+            universe = new Universe.Model.Sqlite.SqliteUniverse(new SQLiteConnection("Data Source=:memory:")
+                .OpenAndReturn());
+#else
+             universe = new Universe.Model.InMemory.Universe();
+#endif
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Universe.Tests.Model
 
             var property = asyncProperties.Create(value);
 
-            Assert.AreEqual(property.Value(), property.Value());
+            Assert.AreEqual(value, property.Value());
             Assert.IsTrue(eventInvoked);
             Assert.IsTrue(asyncProperties.Any());
         }

@@ -1,6 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Data.SQLite;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using Universe.Model;
+using Universe.Model.Sqlite;
 using Universe.WPF.UI.Main;
 
 namespace Universe.WPF
@@ -15,7 +17,11 @@ namespace Universe.WPF
         {
             base.OnStartup(e);
 
-            var window = new MainWindow(new MainViewModel(new TestDataUniverse(new Model.InMemory.Universe())));
+//            var window = new MainWindow(new MainViewModel(new TestDataUniverse(new Model.InMemory.Universe())));
+//            var window = new MainWindow(new MainViewModel(new TestDataUniverse(new SqliteUniverse(new SQLiteConnection("DataSource=universe.db").OpenAndReturn()))));
+            var window =
+                new MainWindow(new MainViewModel(
+                    (new SqliteUniverse(new SQLiteConnection("DataSource=universe.db").OpenAndReturn()))));
             MainWindow = window;
             ShutdownMode = ShutdownMode.OnMainWindowClose;
             window.Show();

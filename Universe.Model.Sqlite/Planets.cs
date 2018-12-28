@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace Universe.Model.Sqlite
@@ -47,7 +48,7 @@ namespace Universe.Model.Sqlite
                 var insertedRows = command.ExecuteNonQuery();
                 if (insertedRows == 0)
                 {
-                    throw new ApplicationException($"Fail to create planet with name <{name}>");
+                    throw new DataException($"Fail to create planet with name <{name}>");
                 }
 
                 return new Planet(_connection, _connection.LastInsertRowId);

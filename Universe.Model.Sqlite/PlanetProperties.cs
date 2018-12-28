@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace Universe.Model.Sqlite
@@ -59,7 +60,7 @@ namespace Universe.Model.Sqlite
                 {
                     if (!reader.HasRows)
                     {
-                        throw new ApplicationException($"Fail add link from planet <{_planetId}> to property with value <{value}>");
+                        throw new DataException($"Fail add link from planet <{_planetId}> to property with value <{value}>");
                     }
 
                     reader.Read();
@@ -77,7 +78,7 @@ namespace Universe.Model.Sqlite
                 var insertedRows = command.ExecuteNonQuery();
                 if (insertedRows == 0)
                 {
-                    throw new ApplicationException($"Fail add link from planet <{_planetId}> to property with value <{value}>");
+                    throw new DataException($"Fail add link from planet <{_planetId}> to property with value <{value}>");
                 }
 
                 return new PlanetProperty(_connection, _connection.LastInsertRowId, propertyId);
@@ -98,7 +99,7 @@ namespace Universe.Model.Sqlite
                 {
                     if (!reader.HasRows)
                     {
-                        throw new ApplicationException($"Fail to find property with value <{value}>");
+                        throw new DataException($"Fail to find property with value <{value}>");
                     }
 
                     reader.Read();

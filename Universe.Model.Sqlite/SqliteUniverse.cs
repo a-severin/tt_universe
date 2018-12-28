@@ -4,8 +4,8 @@ namespace Universe.Model.Sqlite
 {
     public class SqliteUniverse : IUniverse
     {
-        private Planets _planets;
-        private Properties _properties;
+        private readonly Planets _planets;
+        private readonly Properties _properties;
 
         public SqliteUniverse(SQLiteConnection connection)
         {

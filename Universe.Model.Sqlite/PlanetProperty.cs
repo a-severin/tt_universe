@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SQLite;
 
 namespace Universe.Model.Sqlite
@@ -25,7 +26,7 @@ namespace Universe.Model.Sqlite
                 var reader = command.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    throw new ApplicationException($"Fail to load property by id <{_id}>");
+                    throw new DataException($"Fail to load property by id <{_id}>");
                 }
 
                 reader.Read();
@@ -43,7 +44,7 @@ namespace Universe.Model.Sqlite
                 var deletedRow = command.ExecuteNonQuery();
                 if (deletedRow == 0)
                 {
-                    throw new ApplicationException($"Fail to delete planet_property by id <{_id}>");
+                    throw new DataException($"Fail to delete planet_property by id <{_id}>");
                 }
             }
         }

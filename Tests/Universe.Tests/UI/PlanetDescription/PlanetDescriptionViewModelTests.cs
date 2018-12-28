@@ -9,12 +9,14 @@ namespace Universe.Tests.UI.PlanetDescription
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class PlanetDescriptionViewModelTests: BaseUniverseTests
+    public class PlanetDescriptionViewModelTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Constructor_Initialize()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_Initialize(UniverseSources source)
         {
-            var dataUniverse = new TestDataUniverse(universe);
+            var dataUniverse = new TestDataUniverse(Universe(source));
             var vm = new PlanetDescriptionViewModel(dataUniverse);
 
             vm.ShowPlanetDescription(null, dataUniverse.Planets().First());
@@ -25,9 +27,11 @@ namespace Universe.Tests.UI.PlanetDescription
         }
 
         [TestMethod]
-        public void AddProperty_CanExecute_AfterSelectAvailableProperty()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void AddProperty_CanExecute_AfterSelectAvailableProperty(UniverseSources source)
         {
-            var dataUniverse = new TestDataUniverse(universe);
+            var dataUniverse = new TestDataUniverse(Universe(source));
             var vm = new PlanetDescriptionViewModel(dataUniverse);
 
             vm.ShowPlanetDescription(null, dataUniverse.Planets().First());
@@ -38,9 +42,11 @@ namespace Universe.Tests.UI.PlanetDescription
 
 
         [TestMethod]
-        public void AddProperty_AddProperty_AfterExecute()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void AddProperty_AddProperty_AfterExecute(UniverseSources source)
         {
-            var dataUniverse = new TestDataUniverse(universe);
+            var dataUniverse = new TestDataUniverse(Universe(source));
             var vm = new PlanetDescriptionViewModel(dataUniverse);
 
             var planet = dataUniverse.Planets().First();
@@ -48,7 +54,7 @@ namespace Universe.Tests.UI.PlanetDescription
             vm.SelectedAvailableProperty = vm.AvailableToAddProperties.First();
             var prop = vm.SelectedAvailableProperty.Property;
             vm.AddProperty.Execute(null);
-           
+
             Assert.IsTrue(planet.Properties().Contains(prop));
         }
     }

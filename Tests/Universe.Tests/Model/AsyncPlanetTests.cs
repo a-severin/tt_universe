@@ -12,9 +12,11 @@ namespace Universe.Tests.Model
     public class AsyncPlanetTests : BaseUniverseTests
     {
         [TestMethod]
-        public async Task RenameAsync_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task RenameAsync_InvokeEvent(UniverseSources source)
         {
-            var planet = new AsyncPlanet(universe.Planets().Create(""));
+            var planet = new AsyncPlanet(Universe(source).Planets().Create(""));
             var invoked = false;
             planet.PlanetRenamed += (sender, args) => invoked = true;
 
@@ -26,9 +28,11 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public async Task DeleteAsync_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task DeleteAsync_InvokeEvent(UniverseSources source)
         {
-            var planets = universe.Planets();
+            var planets = Universe(source).Planets();
             var planet = new AsyncPlanet(planets.Create(""));
             var invoked = false;
             planet.PlanetDeleted += (sender, args) => invoked = true;
@@ -40,9 +44,11 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Rename_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Rename_InvokeEvent(UniverseSources source)
         {
-            var planet = new AsyncPlanet(universe.Planets().Create(""));
+            var planet = new AsyncPlanet(Universe(source).Planets().Create(""));
             var invoked = false;
             planet.PlanetRenamed += (sender, args) => invoked = true;
 
@@ -54,9 +60,11 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Delete_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Delete_InvokeEvent(UniverseSources source)
         {
-            var planets = universe.Planets();
+            var planets = Universe(source).Planets();
             var planet = new AsyncPlanet(planets.Create(""));
             var invoked = false;
             planet.PlanetDeleted += (sender, args) => invoked = true;

@@ -12,10 +12,12 @@ namespace Universe.Tests.Model
     public class AsyncPlanetsTests: BaseUniverseTests
     {
         [TestMethod]
-        public async Task CreateAsync_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task CreateAsync_InvokeEvent(UniverseSources source)
         {
             var name = "TestPlanetName";
-            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            var asyncPlanets = new AsyncPlanets(Universe(source).Planets());
             var eventInvoked = false;
             asyncPlanets.NewPlanetEvent += (sender, args) => { eventInvoked = true; };
 
@@ -27,10 +29,12 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Create_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Create_InvokeEvent(UniverseSources source)
         {
             var name = "TestPlanetName";
-            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            var asyncPlanets = new AsyncPlanets(Universe(source).Planets());
             var eventInvoked = false;
             asyncPlanets.NewPlanetEvent += (sender, args) => { eventInvoked = true; };
 
@@ -42,18 +46,22 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Planets_Empty_AfterDelete()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Planets_Empty_AfterDelete(UniverseSources source)
         {
-            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            var asyncPlanets = new AsyncPlanets(Universe(source).Planets());
             asyncPlanets.Create("Test Planet");
             asyncPlanets.First().Delete();
             Assert.IsFalse(asyncPlanets.Any());
         }
 
         [TestMethod]
-        public void Planets_NotEmpty_AfterCreateOne()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Planets_NotEmpty_AfterCreateOne(UniverseSources source)
         {
-            var asyncPlanets = new AsyncPlanets(universe.Planets());
+            var asyncPlanets = new AsyncPlanets(Universe(source).Planets());
             asyncPlanets.Create("Test Planet");
             Assert.IsTrue(asyncPlanets.Any());
         }

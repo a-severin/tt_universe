@@ -7,12 +7,14 @@ namespace Universe.Tests.UI.Main
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class MainViewModelTests: BaseUniverseTests
+    public class MainViewModelTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Constructor_Initialize()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_Initialize(UniverseSources source)
         {
-            var vm = new MainViewModel(universe);
+            var vm = new MainViewModel(Universe(source));
 
             Assert.IsNotNull(vm.ListPlanetsViewModel);
             Assert.IsNotNull(vm.ListPropertiesViewModel);

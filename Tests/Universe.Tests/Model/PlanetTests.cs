@@ -11,9 +11,11 @@ namespace Universe.Tests.Model
     public class PlanetTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Rename_ChangeName()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Rename_ChangeName(UniverseSources source)
         {
-            var planet = new TestDataUniverse(universe).Planets().First();
+            var planet = new TestDataUniverse(Universe(source)).Planets().First();
 
             var name = "Test";
 

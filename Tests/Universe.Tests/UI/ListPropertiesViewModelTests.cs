@@ -12,10 +12,12 @@ namespace Universe.Tests.UI
     public class ListPropertiesViewModelTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Constructor_NotEmptyCollection()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_NotEmptyCollection(UniverseSources source)
         {
             Assert.IsTrue(new ListPropertiesViewModel(
-                new TestDataUniverse(universe)
+                new TestDataUniverse(Universe(source))
             ).PropertyPresenters.Any());
         }
     }

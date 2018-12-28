@@ -10,12 +10,14 @@ namespace Universe.Tests.UI.PlanetDescription
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class DeleteItemTests: BaseUniverseTests
+    public class DeleteItemTests : BaseUniverseTests
     {
         [TestMethod]
-        public async Task Execute_CallDelete()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task Execute_CallDelete(UniverseSources source)
         {
-            var dataUniverse = new TestDataUniverse(universe);
+            var dataUniverse = new TestDataUniverse(Universe(source));
 
             var asyncPlanetProperty = new AsyncPlanetProperty(dataUniverse.Planets().First().Properties().First());
             var deleteItem = new DeleteItem(asyncPlanetProperty);

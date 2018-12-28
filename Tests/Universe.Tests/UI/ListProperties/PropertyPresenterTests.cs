@@ -12,10 +12,12 @@ namespace Universe.Tests.UI.ListProperties
     public class PropertyPresenterTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Constructor_Initialize()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_Initialize(UniverseSources source)
         {
             var value = "Test";
-            var presenter = new PropertyPresenter(new AsyncProperty(universe.Properties().Create(value)),
+            var presenter = new PropertyPresenter(new AsyncProperty(Universe(source).Properties().Create(value)),
                 propertyPresenter => { });
 
             Assert.AreEqual(value, presenter.Text);
@@ -24,8 +26,11 @@ namespace Universe.Tests.UI.ListProperties
         }
 
         [TestMethod]
-        public async Task DeleteItem_Execute()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task DeleteItem_Execute(UniverseSources source)
         {
+            var universe = Universe(source);
             var command = new DeleteProperty(new AsyncProperty(universe.Properties().Create("")));
 
             Assert.IsTrue(command.CanExecute(null));
@@ -36,9 +41,11 @@ namespace Universe.Tests.UI.ListProperties
         }
 
         [TestMethod]
-        public async Task EditName_Execute()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task EditName_Execute(UniverseSources source)
         {
-            var property = new AsyncProperty(universe.Properties().Create(""));
+            var property = new AsyncProperty(Universe(source).Properties().Create(""));
             var command = new EditPropertyValue(property);
             var value = "Test2";
 

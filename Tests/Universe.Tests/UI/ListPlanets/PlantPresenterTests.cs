@@ -13,11 +13,12 @@ namespace Universe.Tests.UI.ListPlanets
     public class PlantPresenterTests: BaseUniverseTests
     {
         [TestMethod]
-        [ExcludeFromCodeCoverage]
-        public void Constructor_Initialize()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_Initialize(UniverseSources source)
         {
             var name = "Test";
-            var presenter = new PlanetPresenter(new AsyncPlanet(universe.Planets().Create(name)), presenter1 => { });
+            var presenter = new PlanetPresenter(new AsyncPlanet(Universe(source).Planets().Create(name)), presenter1 => { });
 
             Assert.IsNotNull(presenter.DeleteItem);
             Assert.IsNotNull(presenter.EditName);
@@ -25,10 +26,12 @@ namespace Universe.Tests.UI.ListPlanets
         }
 
         [TestMethod]
-        public async Task EditPlanetName_Execute_ChangeName()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task EditPlanetName_Execute_ChangeName(UniverseSources source)
         {
             var name = "Test";
-            var asyncPlanet = new AsyncPlanet(universe.Planets().Create(name));
+            var asyncPlanet = new AsyncPlanet(Universe(source).Planets().Create(name));
             var command = new EditPlanetName(asyncPlanet);
 
             name = "Test2";
@@ -41,8 +44,11 @@ namespace Universe.Tests.UI.ListPlanets
         }
 
         [TestMethod]
-        public async Task DeletePlanet_Execute_RemovePlanet()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task DeletePlanet_Execute_RemovePlanet(UniverseSources source)
         {
+            var universe = Universe(source);
             var command = new DeletePlanet(new AsyncPlanet(universe.Planets().Create("")));
 
             Assert.IsTrue(command.CanExecute(null));

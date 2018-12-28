@@ -11,10 +11,12 @@ namespace Universe.Tests.Model
     public class AsyncPropertiesTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Create_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Create_InvokeEvent(UniverseSources source)
         {
             var value = "TestPropertyValue";
-            var asyncProperties = new AsyncProperties(universe.Properties());
+            var asyncProperties = new AsyncProperties(Universe(source).Properties());
             var eventInvoked = false;
             asyncProperties.NewPropertyEvent += (sender, args) => eventInvoked = true;
 
@@ -26,10 +28,12 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public async Task CreateAsync_InvokeEvent()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task CreateAsync_InvokeEvent(UniverseSources source)
         {
             var value = "TestPropertyValue";
-            var asyncProperties = new AsyncProperties(universe.Properties());
+            var asyncProperties = new AsyncProperties(Universe(source).Properties());
             var eventInvoked = false;
             asyncProperties.NewPropertyEvent += (sender, args) => eventInvoked = true;
 
@@ -41,18 +45,22 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Properties_Empty_AfterDelete()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Properties_Empty_AfterDelete(UniverseSources source)
         {
-            var asyncProperties = new AsyncProperties(universe.Properties());
+            var asyncProperties = new AsyncProperties(Universe(source).Properties());
             asyncProperties.Create("Test Property");
             asyncProperties.First().Delete();
             Assert.IsFalse(asyncProperties.Any());
         }
 
         [TestMethod]
-        public void Properties_NotEmpty_AfterCreateOne()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Properties_NotEmpty_AfterCreateOne(UniverseSources source)
         {
-            var asyncProperties = new AsyncProperties(universe.Properties());
+            var asyncProperties = new AsyncProperties(Universe(source).Properties());
             asyncProperties.Create("Test Property");
             Assert.IsTrue(asyncProperties.Any());
         }

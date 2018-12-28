@@ -11,17 +11,22 @@ namespace Universe.Tests.Model
     public class AsyncPropertyTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Value_ReturnValuePassedToConstructor()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Value_ReturnValuePassedToConstructor(UniverseSources source)
         {
             var value = "Test";
-            var property = new AsyncProperty(universe.Properties().Create(value));
+            var property = new AsyncProperty(Universe(source).Properties().Create(value));
 
             Assert.AreEqual(value, property.Value());
         }
 
         [TestMethod]
-        public void Delete_RemoveItem()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Delete_RemoveItem(UniverseSources source)
         {
+            var universe = Universe(source);
             var property = new AsyncProperty(universe.Properties().Create(""));
 
             Assert.IsTrue(universe.Properties().Any());
@@ -32,8 +37,11 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public async Task DeleteAsync_InvokePropertyDeleted()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task DeleteAsync_InvokePropertyDeleted(UniverseSources source)
         {
+            var universe = Universe(source);
             var property = new AsyncProperty(universe.Properties().Create(""));
             var eventInvoked = false;
             property.PropertyDeleted += (sender, args) => { eventInvoked = true; };
@@ -45,10 +53,12 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public void Change_UpdateValue()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Change_UpdateValue(UniverseSources source)
         {
             var value = "Test";
-            var property = new AsyncProperty(universe.Properties().Create(value));
+            var property = new AsyncProperty(Universe(source).Properties().Create(value));
 
             value = "Test2";
             property.Change(value);
@@ -57,9 +67,11 @@ namespace Universe.Tests.Model
         }
 
         [TestMethod]
-        public async Task ChangeAsync_InvokePropertyChanged()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task ChangeAsync_InvokePropertyChanged(UniverseSources source)
         {
-            var property = new AsyncProperty(universe.Properties().Create(""));
+            var property = new AsyncProperty(Universe(source).Properties().Create(""));
             var eventInvoked = false;
             property.PropertyChanged += (sender, args) => { eventInvoked = true; };
 

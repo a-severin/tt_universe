@@ -12,31 +12,39 @@ namespace Universe.Tests.UI.ListPlanets
     public class ListPlanetsViewModelTests : BaseUniverseTests
     {
         [TestMethod]
-        public void Constructor_NotEmptyCollection()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_NotEmptyCollection(UniverseSources source)
         {
             Assert.IsTrue(new ListPlanetsViewModel(
-                new TestDataUniverse(universe)
+                new TestDataUniverse(Universe(source))
             ).PlanetPresenters.Any());
         }
 
         [TestMethod]
-        public void Constructor_InitializeCommands()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void Constructor_InitializeCommands(UniverseSources source)
         {
-            Assert.IsNotNull(new ListPlanetsViewModel(universe).CreatePlanet);
+            Assert.IsNotNull(new ListPlanetsViewModel(Universe(source)).CreatePlanet);
         }
 
         [TestMethod]
-        public void CreateCommand_CanExecute_NotEmptyParameter()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public void CreateCommand_CanExecute_NotEmptyParameter(UniverseSources source)
         {
-            var createPlanet = new CreatePlanet(new AsyncPlanets(universe.Planets()));
+            var createPlanet = new CreatePlanet(new AsyncPlanets(Universe(source).Planets()));
 
             Assert.IsTrue(createPlanet.CanExecute("Test"));
         }
 
         [TestMethod]
-        public async Task CreateCommand_AddPlanet_NotEmptyParameter()
+        [DataRow(UniverseSources.InMemo)]
+        [DataRow(UniverseSources.SQLite)]
+        public async Task CreateCommand_AddPlanet_NotEmptyParameter(UniverseSources source)
         {
-            var planets = new AsyncPlanets(universe.Planets());
+            var planets = new AsyncPlanets(Universe(source).Planets());
             var eventInvoked = false;
             planets.NewPlanetEvent += (sender, args) => eventInvoked = true;
             var createPlanet = new CreatePlanet(planets);
